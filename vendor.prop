@@ -165,6 +165,9 @@ dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=512k
 dalvik.vm.heapmaxfree=8m
 
+# Dex
+pm.dexopt.shared=quicken
+
 # Fastbootd
 ro.fastbootd.available=true
 

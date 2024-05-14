@@ -6,9 +6,22 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter jasmine_sprout jason lavender platina tulip wayne whyred,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),lavender)
 
 include $(CLEAR_VARS)
+
+LPFLASH := $(HOST_OUT_EXECUTABLES)/lpflash$(HOST_EXECUTABLE_SUFFIX)
+INSTALLED_SUPERIMAGE_DUMMY_TARGET := $(PRODUCT_OUT)/super_dummy.img
+
+$(INSTALLED_SUPERIMAGE_DUMMY_TARGET): $(PRODUCT_OUT)/super_empty.img $(LPFLASH)
+	$(call pretty,"Target dummy super image: $@")
+	$(hide) touch $@
+	$(hide) $(LPFLASH) $@ $(PRODUCT_OUT)/super_empty.img
+
+.PHONY: super_dummyimage
+super_dummyimage: $(INSTALLED_SUPERIMAGE_DUMMY_TARGET)
+
+INSTALLED_RADIOIMAGE_TARGET += $(INSTALLED_SUPERIMAGE_DUMMY_TARGET)
 
 WCNSS_INI_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 $(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
@@ -103,14 +116,6 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /system_ext/lib64/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
-
-METADATA_SYMLINK := $(TARGET_ROOT_OUT)/metadata
-$(METADATA_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating $@"
-	@mkdir -p $(TARGET_ROOT_OUT)/metadata
-	$(hide) ln -sf /data/vendor/metadata_apex $@/apex
-
-ALL_DEFAULT_INSTALLED_MODULES += $(METADATA_SYMLINK)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif

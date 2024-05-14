@@ -114,6 +114,15 @@ persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac
 
 # Camera
 persist.vendor.camera.preview.ubwc=0
+persist.vendor.camera.isp.clock.optmz=0
+persist.vendor.camera.isp.turbo=1
+persist.vendor.camera.imglib.usefdlite=1
+persist.vendor.camera.expose.aux=1
+persist.vendor.camera.HAL3.enabled=1
+persist.vendor.camera.manufacturer=Xiaomi
+persist.vendor.camera.model=Redmi Note 7
+persist.vendor.camera.awb.sync=2
+persist.vendor.camera.preview.ubwc=0
 vendor.video.disable.ubwc=1
 vidc.enc.dcvs.extra-buff-count=2
 
@@ -147,6 +156,14 @@ vendor.display.disable_rotator_downscale=1
 vendor.display.disable_skip_validate=1
 vendor.display.enable_default_color_mode=1
 vendor.gralloc.enable_fb_ubwc=1
+
+# Dalvik
+dalvik.vm.heapgrowthlimit=256m
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=8m
 
 # Fastbootd
 ro.fastbootd.available=true
@@ -209,6 +226,10 @@ ro.soc.model=SDM660
 
 # System
 persist.sys.binary_xml=false
+
+# SurfaceFlinger
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.use_color_management=true
 
 # Time
 persist.vendor.delta_time.enable=true

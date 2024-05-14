@@ -190,9 +190,6 @@ VENDOR_SECURITY_PATCH := 2021-06-01
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current
 
-# USB
-TARGET_USES_USB_GADGET_HAL := true
-
 # Verity only needed for signing
 BOARD_AVB_ENABLE := false
 

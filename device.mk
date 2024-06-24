@@ -256,7 +256,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_sdm660
+    android.hardware.light-service.xiaomi
 
  # Low power Whitelist
 PRODUCT_COPY_FILES += \

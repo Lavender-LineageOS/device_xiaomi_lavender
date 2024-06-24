@@ -228,6 +228,10 @@ PRODUCT_PACKAGES += \
     init.xiaomi_parts.rc \
     ueventd.qcom.rc
 
+# Configstore
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \

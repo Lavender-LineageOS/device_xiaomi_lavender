@@ -311,6 +311,9 @@ PRODUCT_PACKAGES += \
     NoCutoutOverlay \
     NotchBarKiller
 
+# Add common definitions for Qualcomm
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2.vendor \

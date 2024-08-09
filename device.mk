@@ -59,6 +59,9 @@ PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
 
+# Audio (Dolby Atmos)
+$(call inherit-product, vendor/motorola-dolby/setup.mk)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
